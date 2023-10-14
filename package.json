@@ -1,0 +1,28 @@
+{
+  "name": "asciish",
+  "version": "0.0.1",
+  "description": "Powerful lookup-based emoticon engine for the web.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "module": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxmmyron/asciish.git"
+  },
+  "keywords": [
+    "emoticon",
+    "ascii"
+  ],
+  "author": "mmyron",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxmmyron/asciish/issues"
+  },
+  "homepage": "https://github.com/maxmmyron/asciish#readme",
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  }
+}
