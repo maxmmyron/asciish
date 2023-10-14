@@ -1,5 +1,5 @@
 {
-  "name": "asciish",
+  "name": "asciish-loader",
   "version": "0.0.1",
   "description": "Powerful lookup-based emoticon engine for the web.",
   "main": "index.js",

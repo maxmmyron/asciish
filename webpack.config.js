@@ -5,16 +5,6 @@ const path = require("path");
  */
  const config = {
   entry: "./src/index.js",
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: [{
-          loader: path.resolve("src/loaders/emoticonLoader.js"),
-        }],
-      }
-    ]
-  },
   output: {
     filename: "main.js",
     globalObject: "this",
