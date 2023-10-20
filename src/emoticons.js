@@ -10,10 +10,11 @@ emotes.set(/&wink;/g, ";)");
 
 const ascii = new Map();
 
-emotes.set(/&gt;/g, ">");
-emotes.set(/&lt;/g, "<");
-emotes.set(/&larr;/g, "<-");
-emotes.set(/&rarr;/g, "->");
+ascii.set(/&gt;/g, ">");
+ascii.set(/&lt;/g, "<");
+ascii.set(/&larr;/g, "<-");
+ascii.set(/&rarr;/g, "->");
+ascii.entries(/&clef;/g, "𝄞");
 
 export { emotes, ascii };
 

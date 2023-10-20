@@ -9,5 +9,9 @@ export default function loader(source, map) {
     source = source.replaceAll(key, value);
   }
 
+  for(const [key, value] of ascii) {
+    source = source.replaceAll(key, value);
+  }
+
   return source;
 }
