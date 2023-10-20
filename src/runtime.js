@@ -32,4 +32,4 @@ const runtime = () => {
   }
 }
 
-runtime().emotes.random();
+export { runtime };

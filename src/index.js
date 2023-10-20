@@ -1,3 +1,4 @@
+import { runtime } from './runtime.js';
 import { emotes, ascii } from './emoticons.js';
 
 /**
@@ -15,3 +16,5 @@ export default function loader(source, map) {
 
   return source;
 }
+
+export { runtime };
