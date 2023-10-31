@@ -32,4 +32,4 @@ const runtime = () => {
   }
 }
 
-export { runtime };
+export default runtime;
