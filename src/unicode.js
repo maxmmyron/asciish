@@ -14,8 +14,14 @@ const unicodeProperties = [
   [/&gt;/g, ">", UnicodeType.ARROW, UnicodeType.MATH],
   [/&lt;/g, "<", UnicodeType.ARROW, UnicodeType.MATH],
   [/&larr;/g, "<-", UnicodeType.ARROW],
-  [/&rarr;/g, "->", UnicodeType.ARROW],
+  [/&uarr;/g, "↑", UnicodeType.ARROW],
+  [/&rarr;/g, "->", UnicodeType.ARROW]
+  [/&darr;/g, "↓", UnicodeType.ARROW],
   [/&trebleclef;/g, "𝄞", UnicodeType.MISC],
+  [/&product;/g, "∏", UnicodeType.MATH],
+  [/&sum;/g, "∑", UnicodeType.MATH],
+  [/&infinity;/g, "∞", UnicodeType.MATH],
+  [/&pi;/g, "π", UnicodeType.MATH],
 ];
 
 /**
