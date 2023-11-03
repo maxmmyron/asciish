@@ -1,6 +1,6 @@
-/**
- * Abc
- */
+import { emotes as emoteMap } from "../emotes"
+import { unicode as unicodeMap } from "../unicode"
+
 const fanciful = {
   /**
    * Rerenders the alphabetical characters in a string using monospace unicode glyphs
@@ -19,28 +19,26 @@ const fanciful = {
   }).join(''),
 }
 
-// const emotes = {
-//   /**
-//    * Returns a random defined emote replacement
-//    *
-//    * @returns {string} random emote character
-//    */
-//   random: () => {
-//     return [...emotes.values()][Math.floor(Math.random() * emotes.size)];
-//   },
-// }
+const emotes = {
+  /**
+   * Returns a random defined emote replacement
+   *
+   * @returns {string} random emote character
+   */
+  random: () => {
+    return [...emoteMap.values()][Math.floor(Math.random() * emoteMap.size)];
+  },
+}
 
-// const ascii = {
-//   /**
-//    * Returns a random defined ascii replacement
-//    *
-//    * @returns {string} random ascii character
-//    */
-//   random: () => {
-//     return [...ascii.values()][Math.floor(Math.random() * ascii.size)];
-//   }
-// }
+const unicode = {
+  /**
+   * Returns a random defined ascii replacement
+   *
+   * @returns {string} random ascii character
+   */
+  random: () => {
+    return [...unicodeMap.values()][Math.floor(Math.random() * unicodeMap.size)];
+  }
+}
 
-// export { fanciful, emotes, ascii };
-
-export { fanciful };
+export { fanciful, emotes, unicode };
