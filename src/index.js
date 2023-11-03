@@ -1,6 +1,5 @@
 import emotes, { EmoteType } from './emoticon';
 import unicode, { UnicodeType } from './unicode';
-import emoji from './emoji';
 
 /**
  * @param {string|Buffer} source content of the resource file
@@ -18,4 +17,4 @@ export default function loader(source, map) {
   return source;
 }
 
-export { emotes, unicode, emoji, EmoteType, UnicodeType };
+export { emotes, unicode, EmoteType, UnicodeType };
