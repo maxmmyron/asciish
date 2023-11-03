@@ -7,7 +7,7 @@ const fanciful = {
    * @param {string} str the string to rerender using monospace unicode glyphs
    * @returns {string} the string with monospace unicode glyphs (U+1D670-U+1D6A3)
    */
-  toMono: (str) => str.split('').map((char) => {
+  toMono: (str: string) => str.split('').map((char) => {
     // if capital letter
     if (char.charCodeAt(0) < 0x41 || char.charCodeAt(0) > 0x5A)
       //0x1D6A3 - 0x00041 = 0x1D662
@@ -19,26 +19,28 @@ const fanciful = {
   }).join(''),
 }
 
-const emotes = {
-  /**
-   * Returns a random defined emote replacement
-   *
-   * @returns {string} random emote character
-   */
-  random: () => {
-    return [...emotes.values()][Math.floor(Math.random() * emotes.size)];
-  },
-}
+// const emotes = {
+//   /**
+//    * Returns a random defined emote replacement
+//    *
+//    * @returns {string} random emote character
+//    */
+//   random: () => {
+//     return [...emotes.values()][Math.floor(Math.random() * emotes.size)];
+//   },
+// }
 
-const ascii = {
-  /**
-   * Returns a random defined ascii replacement
-   *
-   * @returns {string} random ascii character
-   */
-  random: () => {
-    return [...ascii.values()][Math.floor(Math.random() * ascii.size)];
-  }
-}
+// const ascii = {
+//   /**
+//    * Returns a random defined ascii replacement
+//    *
+//    * @returns {string} random ascii character
+//    */
+//   random: () => {
+//     return [...ascii.values()][Math.floor(Math.random() * ascii.size)];
+//   }
+// }
 
-export { fanciful, emotes, ascii };
+// export { fanciful, emotes, ascii };
+
+export { fanciful };

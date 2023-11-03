@@ -1,4 +1,4 @@
-import * as runtime from "./runtime/index.js";
+import * as runtime from "./runtime";
 
 /**
  * Types of emotes
@@ -54,7 +54,7 @@ const unicodeProperties = [
   [/&lt;/g, "<", UnicodeType.ARROW, UnicodeType.MATH],
   [/&larr;/g, "<-", UnicodeType.ARROW],
   [/&uarr;/g, "↑", UnicodeType.ARROW],
-  [/&rarr;/g, "->", UnicodeType.ARROW]
+  [/&rarr;/g, "->", UnicodeType.ARROW],
   [/&darr;/g, "↓", UnicodeType.ARROW],
   [/&trebleclef;/g, "𝄞", UnicodeType.MISC],
   [/&product;/g, "∏", UnicodeType.MATH],
@@ -78,7 +78,7 @@ for(const emote of unicodeProperties) unicode.set(emote[0], emote.slice(1));
  * @param {string|Buffer} source content of the resource file
  * @param {object} [map] SourceMap data consumable by https://github.com/mozilla/source-map
  */
-export default function loader(source, map) {
+export default function loader(source: string, map: unknown) {
   for(const [regexp, metadata] of emotes) {
     source = source.replaceAll(regexp, metadata[0]);
   }
