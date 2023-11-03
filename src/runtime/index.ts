@@ -35,7 +35,7 @@ const fanciful = {
   toMono: (str: string) => reformatToUnicodeFont(str, 0x1D670, 0x1D68A, 0x1D7F6),
   toSerifBold: (str: string) => reformatToUnicodeFont(str, 0x1D400, 0x1D41A, 0x1D7CE),
   toScriptBold: (str: string) => reformatToUnicodeFont(str, 0x1D4D0, 0x1D4EA, 0x1D7CE),
-  toGothicBold: (str: string) => reformatToUnicodeFont(str, 0x1D5A0, 0x1D5BA, 0x1D7CE),
+  toGothicBold: (str: string) => reformatToUnicodeFont(str, 0x1D56C, 0x1D586, 0x1D7CE),
 }
 
 const emotes = {
