@@ -1,3 +1,4 @@
+import fanciful from "./fanciful";
 import runtime from './runtime';
 
-export { runtime };
+export { fanciful, runtime };

@@ -1,3 +1,5 @@
+import { toGothic } from "./fanciful";
+
 /**
  * Runtime-level helpers for on-the-fly unicode handling.
  *
@@ -28,7 +30,8 @@ const runtime = () => {
 
   return {
     emotes,
-    ascii
+    ascii,
+    toGothic
   }
 }
 
