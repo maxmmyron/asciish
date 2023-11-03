@@ -22,6 +22,10 @@ const unicodeProperties = [
   [/&sum;/g, "∑", UnicodeType.MATH],
   [/&infinity;/g, "∞", UnicodeType.MATH],
   [/&pi;/g, "π", UnicodeType.MATH],
+
+  [/&box;/g, "□", UnicodeType.MISC],
+  [/&boxcross;/g, "✖", UnicodeType.MISC],
+  [/&boxcheck;/g, "✓", UnicodeType.MISC],
 ];
 
 /**
