@@ -26,7 +26,7 @@ const emotes = {
    * @returns {string} random emote character
    */
   random: () => {
-    return [...emoteMap.values()][Math.floor(Math.random() * emoteMap.size)];
+    return [...emoteMap.values()][Math.floor(Math.random() * emoteMap.size)][0];
   },
 }
 
@@ -37,7 +37,7 @@ const unicode = {
    * @returns {string} random ascii character
    */
   random: () => {
-    return [...unicodeMap.values()][Math.floor(Math.random() * unicodeMap.size)];
+    return [...unicodeMap.values()][Math.floor(Math.random() * unicodeMap.size)][0];
   }
 }
 
