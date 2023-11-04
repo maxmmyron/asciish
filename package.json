@@ -4,13 +4,14 @@
   "version": "0.0.0",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
+  "type": "module",
   "keywords": ["rollup-plugin", "vite-plugin"],
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.es.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
