@@ -38,6 +38,19 @@ const fanciful = {
   toGothicBold: (str: string) => reformatToUnicodeFont(str, 0x1D56C, 0x1D586, 0x1D7CE),
 }
 
+const emoji = {
+  /**
+   * Splits a string of ZWJ sequence emojis into their atomic elements.
+   *
+   * For example, the farmer emoji 🧑‍🌾 is made up of the atomic elements
+   * "Person" 🧑, a ZWJ, and "Sheaf of Rice" 🌾.
+   *
+   * @param str a string of ZWJ sequence emojis
+   * @returns {string[]} an array of emojis that make up the ZWJ sequence
+   */
+  split: (str: string) => [...str].filter(char => 0x200d !== char.codePointAt(0)),
+}
+
 const emotes = {
   /**
    * Returns a random defined emote replacement
@@ -60,4 +73,4 @@ const unicode = {
   }
 }
 
-export { fanciful, emotes, unicode };
+export { fanciful, emoji, emotes, unicode };
