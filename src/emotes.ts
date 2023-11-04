@@ -20,7 +20,7 @@ const emoteProperties = [
   [/&kiss;/g, "( ˘ ³˘)♥", EmoteType.LOVE],
   [/&flip;/g, "(╯°□°)╯︵ ┻━┻", EmoteType.ANGRY],
   [/&dog;/g, "•ᴥ•", EmoteType.MISC],
-  [/&shrug;/g, "¯\\_(ツ)_/¯", EmoteType.MISC]
+  [/&shrug;/g, "¯&bsol;_(ツ)_/¯", EmoteType.MISC]
 ]
 
 /**
