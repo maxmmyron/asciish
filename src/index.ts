@@ -2,7 +2,7 @@ import * as runtime from "./runtime";
 import { emotes } from "./emotes"
 import { unicode } from "./unicode"
 
-function rollupPlugin() {
+function asciishPlugin() {
   return {
     name: "asciish-transform-shortcodes",
 
@@ -26,4 +26,4 @@ function rollupPlugin() {
   }
 }
 
-export { rollupPlugin, emotes, unicode, runtime };
+export { asciishPlugin, emotes, unicode, runtime };
