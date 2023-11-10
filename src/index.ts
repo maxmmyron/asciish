@@ -1,6 +1,7 @@
 import * as runtime from "./runtime";
 import { emotes } from "./emotes"
 import { unicode } from "./unicode"
+import { punctuation } from "./prose";
 
 function asciishPlugin() {
   return {
@@ -19,6 +20,10 @@ function asciishPlugin() {
         source = source.replaceAll(regexp, metadata[0]);
       }
 
+      for (const [regexp, metadata] of punctuation) {
+        source = source.replaceAll(regexp, metadata[0]);
+      }
+
       return {
         code: source,
       };
@@ -26,4 +31,4 @@ function asciishPlugin() {
   }
 }
 
-export { asciishPlugin, emotes, unicode, runtime };
+export { asciishPlugin, emotes, unicode, punctuation, runtime };

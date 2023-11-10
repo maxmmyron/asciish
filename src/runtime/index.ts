@@ -1,8 +1,6 @@
 import { emotes as emoteMap } from "../emotes"
 import { unicode as unicodeMap } from "../unicode"
 
-// type FontMapping = {capital: [number, number], lowercase: [number, number], digits: [number, number]};
-
 const reformatToUnicodeFont = (str: string, capIndex: number, lowerIndex: number, digitIndex: number, miscMap: Map<string, number> = new Map()) => {
   return str.split('').map((char) => {
     const charCode = char.charCodeAt(0);
@@ -26,7 +24,7 @@ const reformatToUnicodeFont = (str: string, capIndex: number, lowerIndex: number
   })
 }
 
-const fanciful = {
+const prose = {
   /**
    * Rerenders the alphabetical characters in a string using monospace unicode glyphs
    * @param {string} str the string to rerender using monospace unicode glyphs
@@ -73,4 +71,4 @@ const unicode = {
   }
 }
 
-export { fanciful, emoji, emotes, unicode };
+export { prose, emoji, emotes, unicode };
