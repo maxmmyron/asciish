@@ -7,25 +7,57 @@ enum EmoteType {
   SIMPLE = "simple",
 }
 
-const emoteProperties: [RegExp, string, ...EmoteType[]][] = [
-  [/&smile;/g, ":)", EmoteType.SIMPLE, EmoteType.HAPPY],
-  [/&frown;/g, ":(", EmoteType.SIMPLE, EmoteType.SAD],
-  [/&angry;/g, ">:(", EmoteType.SIMPLE, EmoteType.ANGRY],
-  [/&laugh;/g, ":D", EmoteType.SIMPLE, EmoteType.HAPPY],
-  [/&wink;/g, ";)", EmoteType.SIMPLE],
-  [/&tongue;/g, ":P", EmoteType.SIMPLE],
-  [/&happy;/g, "ヽ(´▽`)/", EmoteType.HAPPY],
-  [/&cute;/g, "•‿•", EmoteType.HAPPY],
-  [/&sad;/g, "(╥_╥)", EmoteType.SAD],
-  [/&kiss;/g, "( ˘ ³˘)♥", EmoteType.LOVE],
-  [/&flip;/g, "(╯°□°)╯︵ ┻━┻", EmoteType.ANGRY],
-  [/&dog;/g, "•ᴥ•", EmoteType.MISC],
-  [/&shrug;/g, "¯&bsol;_(ツ)_/¯", EmoteType.MISC]
-]
+const registerEmote = (char: string, shortcodes: string[], ...types: EmoteType[]) => {
+  for (const shortcode of shortcodes) {
+    const regexp = new RegExp(`&${shortcode};`, "g");
+    if (emotes.has(regexp)) throw new Error(`Error registering ${shortcode} to ${char}: shortcode already registered to ${emotes.get(regexp)}`);
+    emotes.set(regexp, [char, ...types]);
+  }
+};
 
 const emotes: Map<RegExp, [string, ...EmoteType[]]> = new Map();
 
-for(const emote of emoteProperties)
-  emotes.set(emote[0], [emote[1], ...(emote.slice(2) as EmoteType[])]);
+// ----------------------------------------
+// SIMPLE EMOTES
+// ----------------------------------------
+
+registerEmote(":)", ["smile"], EmoteType.SIMPLE, EmoteType.HAPPY);
+registerEmote(":(", ["frown"], EmoteType.SIMPLE, EmoteType.SAD);
+registerEmote(">:(", ["angry"], EmoteType.SIMPLE, EmoteType.ANGRY);
+registerEmote(":D", ["laugh"], EmoteType.SIMPLE, EmoteType.HAPPY);
+registerEmote(";)", ["wink"], EmoteType.SIMPLE);
+registerEmote(":P", ["tongue"], EmoteType.SIMPLE);
+
+// ----------------------------------------
+// HAPPY EMOTICONS
+// ----------------------------------------
+
+registerEmote("ヽ(´▽`)/", ["happy"], EmoteType.HAPPY);
+registerEmote("•‿•", ["cute"], EmoteType.HAPPY);
+
+// ----------------------------------------
+// SAD EMOTICONS
+// ----------------------------------------
+
+registerEmote("(╥_╥)", ["sad"], EmoteType.SAD);
+
+// ----------------------------------------
+// LOVE EMOTICONS
+// ----------------------------------------
+
+registerEmote("( ˘ ³˘)♥", ["kiss"], EmoteType.LOVE);
+
+// ----------------------------------------
+// ANGRY EMOTICONS
+// ----------------------------------------
+
+registerEmote("(╯°□°)╯︵ ┻━┻", ["flip"], EmoteType.ANGRY);
+
+// ----------------------------------------
+// MISC EMOTICONS
+// ----------------------------------------
+
+registerEmote("•ᴥ•", ["dog"], EmoteType.MISC);
+registerEmote("¯\\_(ツ)_/¯", ["shrug"], EmoteType.MISC);
 
 export { emotes, EmoteType };
