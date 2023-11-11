@@ -7,7 +7,7 @@ enum EmoteType {
   SIMPLE = "simple",
 }
 
-const emoteProperties = [
+const emoteProperties: [RegExp, string, ...EmoteType[]][] = [
   [/&smile;/g, ":)", EmoteType.SIMPLE, EmoteType.HAPPY],
   [/&frown;/g, ":(", EmoteType.SIMPLE, EmoteType.SAD],
   [/&angry;/g, ">:(", EmoteType.SIMPLE, EmoteType.ANGRY],
@@ -23,11 +23,9 @@ const emoteProperties = [
   [/&shrug;/g, "¯&bsol;_(ツ)_/¯", EmoteType.MISC]
 ]
 
-/**
- * @type {Map<RegExp, Array<*>>} emotes
- */
-const emotes = new Map();
+const emotes: Map<RegExp, [string, ...EmoteType[]]> = new Map();
 
-for(const emote of emoteProperties) emotes.set(emote[0], emote.slice(1));
+for(const emote of emoteProperties)
+  emotes.set(emote[0], [emote[1], ...(emote.slice(2) as EmoteType[])]);
 
 export { emotes, EmoteType };

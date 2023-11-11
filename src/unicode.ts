@@ -5,7 +5,7 @@
   MUSIC = "music",
 }
 
-const unicodeProperties = [
+const unicodeProperties: [RegExp, string, ...UnicodeType[]][] = [
   [/&gt;/g, ">", UnicodeType.ARROW, UnicodeType.MATH],
   [/&lt;/g, "<", UnicodeType.ARROW, UnicodeType.MATH],
   [/&larr;/g, "<-", UnicodeType.ARROW],
@@ -17,17 +17,14 @@ const unicodeProperties = [
   [/&sum;/g, "∑", UnicodeType.MATH],
   [/&infinity;/g, "∞", UnicodeType.MATH],
   [/&pi;/g, "π", UnicodeType.MATH],
-
   [/&box;/g, "□", UnicodeType.MISC],
   [/&boxcross;/g, "✖", UnicodeType.MISC],
   [/&boxcheck;/g, "✓", UnicodeType.MISC],
 ];
 
-/**
- * @type {Map<RegExp, Array<*>>} emotes
- */
-const unicode = new Map();
+const unicode: Map<RegExp, [string, ...UnicodeType[]]> = new Map();
 
-for(const emote of unicodeProperties) unicode.set(emote[0], emote.slice(1));
+for(const emote of unicodeProperties)
+  unicode.set(emote[0], [emote[1], ...(emote.slice(2) as UnicodeType[])]);
 
 export { unicode, UnicodeType };
