@@ -36,7 +36,7 @@ const reformatToUnicodeFont = (str: string, capIndex: number, lowerIndex: number
   }).join('');
 }
 
-const fanciful = {
+const prose = {
   /**
    * Rerenders the alphabetical characters in a string using monospace unicode glyphs
    * @param str the string to rerender using monospace unicode glyphs
@@ -101,4 +101,4 @@ const unicode = {
   }
 }
 
-export { fanciful, emoji, emotes, unicode };
+export { prose, emoji, emotes, unicode };
