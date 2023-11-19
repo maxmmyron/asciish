@@ -5,9 +5,8 @@ asciish provides build-time shortcode-based emoticon injection for webpages and 
 ## Install
 
 ### npm
+
 `npm i asciish`
-
-
 
 ## Use
 
@@ -15,14 +14,14 @@ asciish provides build-time shortcode-based emoticon injection for webpages and 
 
 **(NOTE: this feature is Vite/Rollup-only at the moment)**
 
-asciish provides a small plugin that provides shortcode-based emoticon injection (similar to how :fire: resolves to 🔥 on some platforms.)
+asciish provides a small plugin that provides shortcode-based emoticon injection (similar to how `:fire:` resolves to 🔥 on some platforms.)
 
 Add the plugin to your config:
 
 ```js
 // vite.config.js
-import { defineConfig } from 'vite';
-import { asciishPlugin } from 'asciish';
+import { defineConfig } from "vite";
+import { asciishPlugin } from "asciish";
 
 export default defineConfig({
   plugins: [
@@ -55,6 +54,36 @@ This will compile to
 <!-- ... -->
 ```
 
+### compiler options
+
+you can pass in options to the plugin to customize its behavior:
+
+```js
+// vite.config.js
+import { defineConfig } from "vite";
+import { asciishPlugin } from "asciish";
+
+export default defineConfig({
+  plugins: [
+    // other plugins...
+    asciishPlugin({
+      parser: {
+        emotes: false,
+        // ...
+      },
+    }),
+  ],
+  // ...
+});
+```
+
+`parser`: supports enabling/disabling certain regexp parsers at build-time:
+
+- `emotes`: enables/disables emote parsing (default: `true`)
+- `punctuation`: enables/disables pretty punctuation parsing (default: `true`)
+- `shortcodes`: enables/disables emoji shortcode (see [ikatyang's emoji cheat sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)) parsing (default: `true`)
+- `unicode`: enables/disables unicode parsing (default: `true`)
+
 ### runtime helpers
 
 asciish provides multiple runtime helper functions for working with the Unicode standard.
@@ -74,6 +103,7 @@ You can include the `runtime` object in your code to access runtime helpers:
 ```
 
 ## Planned Features
+
 - Plugin options (file extensions, preferred shortcode syntax, etc.)
 - Support for Webpack via custom loader
 - Support build-time randomized emote injection
