@@ -130,4 +130,11 @@ registerUnicode("⬢", ["blackhex"], UnicodeType.GEOMETRY);
 registerUnicode("⬡", ["whitehex"], UnicodeType.GEOMETRY);
 registerUnicode("⬣", ["blackhexhorz", "horizontalblackhex"], UnicodeType.GEOMETRY);
 
+// ----------------------------------------
+// MISC SYMBOLS
+// ----------------------------------------
+
+registerUnicode("", ["applelogo"], UnicodeType.MISC);
+registerUnicode("", ["twitterlogo"], UnicodeType.MISC);
+
 export { unicode, UnicodeType };
