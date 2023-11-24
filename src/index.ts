@@ -12,10 +12,27 @@ interface AsciishParserOptions {
 }
 
 type AsciishPluginOptions = {
+  affixes: {
+    /**
+     * The affixes to use for all default shortcode replacement operations
+     * @default ["&", ";"]
+     */
+    default: [string, string],
+    /**
+     * The affixes to use for all emoji shortcode replacement operations
+     * @default [":", ":"]
+     */
+    emoji: [string, string]
+  }
+
   parser: AsciishParserOptions;
 }
 
 function asciishPlugin(opts: AsciishPluginOptions = {
+  affixes: {
+    default: ["&", ";"],
+    emoji: [":", ":"]
+  },
   parser: {
     emotes: true,
     unicode: true,
@@ -32,12 +49,14 @@ function asciishPlugin(opts: AsciishPluginOptions = {
       let source = src.toString();
 
       if(opts.parser.emotes)
-        for(const [regexp, metadata] of emotes) {
+        for(const [shortcode, metadata] of emotes) {
+          const regexp = new RegExp(`${opts.affixes.default[0]}${shortcode}${opts.affixes.default[1]}`, "g");
           source = source.replaceAll(regexp, metadata[0]);
         }
 
       if(opts.parser.unicode)
-        for(const [regexp, metadata] of unicode) {
+        for(const [shortcode, metadata] of unicode) {
+          const regexp = new RegExp(`${opts.affixes.default[0]}${shortcode}${opts.affixes.default[1]}`, "g");
           source = source.replaceAll(regexp, metadata[0]);
         }
 
@@ -48,7 +67,8 @@ function asciishPlugin(opts: AsciishPluginOptions = {
 
       if(opts.parser.shortcodes)
         for(const [shortcode, emoji] of shortcodes) {
-          source = source.replaceAll(shortcode, emoji);
+          const regexp = new RegExp(`${opts.affixes.emoji[0]}${shortcode}${opts.affixes.emoji[1]}`, "g");
+          source = source.replaceAll(regexp, emoji);
         }
 
       return {

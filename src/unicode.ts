@@ -12,13 +12,12 @@
 
 const registerUnicode = (char: string, shortcodes: string[], ...types: UnicodeType[]) => {
   for (const shortcode of shortcodes) {
-    const regexp = new RegExp(`&${shortcode};`, "g");
-    if (unicode.has(regexp)) throw new Error(`Error registering ${shortcode} to ${char}: shortcode already registered to ${unicode.get(regexp)}`);
-    unicode.set(regexp, [char, ...types]);
+    if (unicode.has(shortcode)) throw new Error(`Error registering ${shortcode} to ${char}: shortcode already registered to ${unicode.get(shortcode)}`);
+    unicode.set(shortcode, [char, ...types]);
   }
 };
 
-const unicode: Map<RegExp, [string, ...UnicodeType[]]> = new Map();
+const unicode: Map<string, [string, ...UnicodeType[]]> = new Map();
 
 // ----------------------------------------
 // ARROWS
