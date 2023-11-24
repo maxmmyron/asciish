@@ -10,13 +10,12 @@ enum EmoteType {
 
 const registerEmote = (char: string, shortcodes: string[], ...types: EmoteType[]) => {
   for (const shortcode of shortcodes) {
-    const regexp = new RegExp(`&${shortcode};`, "g");
-    if (emotes.has(regexp)) throw new Error(`Error registering ${shortcode} to ${char}: shortcode already registered to ${emotes.get(regexp)}`);
-    emotes.set(regexp, [char, ...types]);
+    if (emotes.has(shortcode)) throw new Error(`Error registering ${shortcode} to ${char}: shortcode already registered to ${emotes.get(shortcode)}`);
+    emotes.set(shortcode, [char, ...types]);
   }
 };
 
-const emotes: Map<RegExp, [string, ...EmoteType[]]> = new Map();
+const emotes: Map<string, [string, ...EmoteType[]]> = new Map();
 
 // ----------------------------------------
 // SIMPLE EMOTES
